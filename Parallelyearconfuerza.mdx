@@ -1,0 +1,11 @@
+With member Measures.SalesDiff AS 
+([Ship Date].[Year].Currentmember,
+[Measures].[Internet Sales Amount])
+- 
+(ParallelPeriod ([Ship Date].[Year].CURRENTMEMBER.LEVEL,
+1,
+[Ship Date].[Year].CURRENTMEMBER),[Measures].[Internet Sales Amount]), FORMAT_STRING="CURRENCY"
+
+SELECT {[Measures].[Internet Sales Amount], [Measures].[SalesDiff]} ON 0,
+NON EMPTY [Ship Date].[Year].[Month].MEMBERS ON 1
+FROM [Cubo Adventure Works DW2022]

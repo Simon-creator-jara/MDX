@@ -1,0 +1,7 @@
+WITH MEMBER [Measures].IIFSales AS 
+IIF([Measures].[Internet Sales Amount]>10000000,
+"Ventas Altas",IIF([Measures].[Internet Sales Amount]=null,"Sin ventas","Ventas bajas"))
+
+SELECT {[Measures].[Internet Sales Amount], [Measures].IIFSales} ON 0,
+FILTER([Ship Date].[Calendar Year].children, NOT ISEMPTY ([Measures].[Internet Sales Amount])) ON 1
+FROM [Cubo Adventure Works DW2022]

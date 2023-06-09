@@ -1,0 +1,4 @@
+SELECT {[Measures].[Internet Order Quantity],[Measures].[Internet Sales Amount]}  ON COLUMNS,
+ORDER([Dim Product].[Product].[Product],[Measures].[Internet Sales Amount], DESC) ON ROWS
+FROM [Cubos_AW_20231]
+WHERE [Ship Date].[Calendar Year].&[2014]

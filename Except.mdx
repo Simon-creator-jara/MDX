@@ -1,0 +1,4 @@
+SELECT NON EMPTY(([Ship Date].[Calendar Year].CHILDREN, [Ship Date].[Month].CHILDREN)) ON COLUMNS,
+(EXCEPT([Dim Product].[Category].[all].Children, [Dim Product].[Category].&[2])) ON ROWS
+FROM [Cubos_AW_20231]
+WHERE [Measures].[Internet Order Quantity]

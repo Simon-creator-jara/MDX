@@ -1,0 +1,8 @@
+WITH MEMBER [Measures].IIFSales AS 
+IIF([Measures].[Resellers Sales Amount]>200000,
+"Vendedor Bueno",IIF([Measures].[Resellers Sales Amount]>100000,"Vendedor Medio","Vendedor malo"))
+
+SELECT {[Measures].[Resellers Sales Amount], [Measures].IIFSales} ON 0,
+ORDER(filter([Dim Reseller].[Reseller Key].[Reseller Key],NOT ISEMPTY([Measures].[Resellers Sales Amount])),[Measures].[Resellers Sales Amount], ASC) ON rows
+FROM [Cubo Adventure Works DW2022]
+Where [Ship Date].[Calendar Year].&[2013]

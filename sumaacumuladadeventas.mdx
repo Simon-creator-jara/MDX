@@ -1,0 +1,12 @@
+With Member [Measures].[Acumulated Total Sales] AS
+SUM(
+PERIODSTODATE(
+[Ship Date].[Year].[(All)],
+[Ship Date].[Year].CURRENTMEMBER),
+[Measures].[Internet Sales Amount]
+)
+
+Select {[Measures].[Internet Sales Amount],
+[Measures].[Acumulated Total Sales]} ON 0,
+NON EMPTY {[Ship Date].[Year].members} ON 1
+FROM [Cubo Adventure Works DW2022]

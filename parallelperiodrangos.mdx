@@ -1,0 +1,7 @@
+SELECT [Measures].[Internet Sales Amount] ON 0,
+ParallelPeriod (
+[Order Date].[Calendar Year].[Calendar Year],
+2,
+[Order Date].[Calendar Year].&[2014]
+): [Order Date].[Calendar Year].&[2014] ON 1
+from [Cubo Adventure Works DW2022]

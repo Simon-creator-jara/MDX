@@ -1,0 +1,9 @@
+WITH MEMBER [Measures].deduccion AS
+IIF ([Ship Date].[Calendar Year].CURRENTMEMBER IS [Ship Date].[Calendar Year].&[2014],
+[Measures].[Internet Sales Amount],[Measures].[Internet Sales Amount]*0.8), FORMAT_String = "$ #,##0.00;-$ #,##0.00"
+
+
+SELECT {[Measures].[Internet Sales Amount],[Measures].deduccion} on 0,
+(FILTER([Ship Date].[Calendar Year].children , NOT([Measures].[Internet Sales Amount])=null)) ON ROWS
+
+FROM [Cubo Adventure Works DW2022]

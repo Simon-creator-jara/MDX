@@ -1,0 +1,4 @@
+WITH MEMBER measures.NonNullsSales AS COALESCEEMPTY([Measures].[Internet Sales Amount],'Sin ventas')
+
+SELECT NonNullsSales ON 0, [Ship Date].[Calendar Year].[Calendar Year] ON 1
+FROM [Cubo Adventure Works DW2022]

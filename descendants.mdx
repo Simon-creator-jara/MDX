@@ -1,0 +1,8 @@
+SELECT [Measures].[Internet Sales Amount] ON 0,
+Descendants
+([Dim Product].[Jerarquía].[Product Category Key].&[1],
+[Dim Product].[Jerarquía].[Product Subcategory Key],
+self_and_before
+) on 1
+
+from [Cubo Adventure Works DW2022]

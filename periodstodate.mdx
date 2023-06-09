@@ -1,0 +1,8 @@
+SELECT 
+PERIODSTODATE(
+[Ship Date].[Year].[Month],
+[Ship Date].[Year].[Date Key].&[20110520]
+) ON 0
+FROM [Cubo Adventure Works DW2022]
+
+WHERE [Measures].[Internet Sales Amount]

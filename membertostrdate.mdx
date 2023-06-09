@@ -1,0 +1,3 @@
+SELECT [Measures].[Internet Sales Amount] ON 0
+from [Cubo Adventure Works DW2022]
+where strToMember("[Ship Date].[Year].[Date Key].&[2013"+FORMAT(NOW(), "MM")+ FORMAT(NOW(), "dd")+"]")

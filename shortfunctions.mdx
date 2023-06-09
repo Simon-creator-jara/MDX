@@ -1,0 +1,11 @@
+with member [Measures].[YTD] as 
+SUM(
+   QTD ([Ship Date].[Year].CurrentMember),
+   [Measures].[Internet Sales Amount]
+)
+
+Select 
+{[Measures].[Internet Sales Amount],
+[Measures].[YTD]} ON COLUMNS,
+NON EMPTY [Ship Date].[Year].[Quarter] ON ROWS
+FROM [Cubo Adventure Works DW2022]

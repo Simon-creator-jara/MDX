@@ -1,0 +1,3 @@
+SELECT {[Measures].[Internet Order Quantity],[Measures].[Internet Sales Amount]}  ON 0,
+NON EMPTY([Dim Product].[Product].[Product]) ON 1
+FROM [Cubos_AW_20231]

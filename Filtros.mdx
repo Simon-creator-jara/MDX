@@ -1,0 +1,4 @@
+SELECT {[Measures].[Internet Order Quantity],[Measures].[Internet Sales Amount]}  ON COLUMNS,
+FILTER ([Dim Product].[Product].[Product].MEMBERS, [Measures].[Internet Sales Amount] > 5000) ON ROWS
+FROM [Cubos_AW_20231]
+WHERE [Ship Date].[Calendar Year].&[2014]
